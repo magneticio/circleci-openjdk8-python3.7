@@ -1,12 +1,9 @@
 version: 2.1
 
 jobs:
-  build:
+  Build docker:
     docker:
       - image: docker:17.05.0-ce-git
-    branches:
-      only:
-        - master
     steps:
       - checkout
       - setup_remote_docker
@@ -21,3 +18,13 @@ jobs:
               ${login}
               docker tag circleci-jdk-pants magneticio/circleci-openjdk8-python3.7
               docker push magneticio/circleci-openjdk8-python3.7
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - Build docker:
+          filters:
+            branches:
+              only:
+              - master
