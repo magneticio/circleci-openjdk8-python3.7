@@ -87,7 +87,8 @@ RUN groupadd --gid 3434 circleci \
 
 # BEGIN IMAGE CUSTOMIZATIONS
 
-RUN apt-get install -y software-properties-common && apt-get clean
+RUN apt-get install -y software-properties-common rsync && \
+    apt-get clean
 
 ## ---------------- 
 ##    Python 3.6    

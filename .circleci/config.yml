@@ -16,8 +16,8 @@ jobs:
           command: |
               login="docker login -u $DOCKER_USER -p $DOCKER_PASS"
               ${login}
-              docker tag circleci-jdk-pants magneticio/circleci-openjdk8-python3.7
-              docker push magneticio/circleci-openjdk8-python3.7
+              docker tag circleci-jdk-pants magneticio/circleci-openjdk8-python3.6
+              docker push magneticio/circleci-openjdk8-python3.6
 
 workflows:
   version: 2
